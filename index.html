@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' id='main-css'  href='https://rogerhub.com/wp-content/themes/roger-hybrid/style.css?ver=1472886133' type='text/css' media='all' />
+<style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+</style>
+</head>
+<body>
+<div class="entry-content">
+       <div class="tool-main js-tool-main">
+          <form onsubmit="javascript:return false;" autocomplete="off"><center> 
+             <p class="tool-help">This tool will determine what grade (percentage) you need on your final exam in order to pass MEDD 412.</p>
+              <p> 
+                <p>Your midterm grade 
+                    <input id="currentg" placeholder="(e.g. 72)"/>
+                    %.
+              </p>
+              
+              <p>
+                <button class="tool-button inputbutton" id="myBtn"  type="submit">
+                    Determine what I need on Final!
+                </button>
+              </p> </center>
+          </form>
+        </div>
+</div>
+<!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+        <h4></h4>
+    </div>
+      <div class="modal-header">
+        <h4></h4>
+    </div>
+      <div class="modal-header">
+        <h4></h4>
+    </div>
+      <center><h3>You will need </h3>
+      <h3 id="percentage">Some text in the Modal Body</h3></center>
+      <center> <img src="" class="modal-content" id="img01">
+    <div class="modal-footer"> 
+        <h3></h3>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    var x = document.getElementById("currentg").value; 
+    if (x < 0 ){ 
+        document.getElementById("img01").src="ben.jpg";
+    } else if ( x > 100 ) {
+        document.getElementById("img01").src="math.jpg";
+    } else {
+        document.getElementById("img01").src="sample.jpg";
+    }
+
+    var toPass = ((156 -(x/100)*90)/170)*100;
+
+
+    (60-(x/100)*29)/71*100;
+    var grade= toPass.toFixed(2) + "%";
+   
+    var img = document.getElementById('myImg');
+  
+
+    var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+    document.getElementById("percentage").innerHTML= grade;
+
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
