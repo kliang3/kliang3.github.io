@@ -79,7 +79,7 @@
 <div class="entry-content">
        <div class="tool-main js-tool-main">
           <form onsubmit="javascript:return false;" autocomplete="off"><center> 
-             <p class="tool-help">This tool will determine what grade (percentage) you need on your final exam in order to pass MEDD 412.</p>
+             <p class="tool-help">This tool will determine what grade (percentage) you need on your final exam in order to pass MEDD 422.</p>
               <p> 
                 <p>Your midterm grade 
                     <input id="currentg" placeholder="(e.g. 72)"/>
@@ -141,10 +141,9 @@ btn.onclick = function() {
         document.getElementById("img01").src="sample.jpg";
     }
 
-    var toPass = ((156 -(x/100)*90)/170)*100;
+    var toPass = ((138 -(x/100)*75)/155)*100;
 
 
-    (60-(x/100)*29)/71*100;
     var grade= toPass.toFixed(2) + "%";
    
     var img = document.getElementById('myImg');
